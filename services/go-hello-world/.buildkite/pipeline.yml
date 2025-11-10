@@ -1,6 +1,7 @@
 steps:
   - label: ":golang: Run Go Tests"
     command: |
+      cd services/go-hello-world
       go test -v ./...
     plugins:
       - docker#v5.11.0:
@@ -11,6 +12,7 @@ steps:
 
   - label: ":golang: Build Go Service"
     command: |
+      cd services/go-hello-world
       go build -o bin/go-hello-world
     plugins:
       - docker#v5.11.0:
@@ -21,6 +23,7 @@ steps:
 
   - label: ":white_check_mark: Verify Build"
     command: |
+      cd services/go-hello-world
       ls -lh bin/go-hello-world
     plugins:
       - docker#v5.11.0:
