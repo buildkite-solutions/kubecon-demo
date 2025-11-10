@@ -1,0 +1,30 @@
+steps:
+  - label: ":golang: Run Go Tests"
+    command: |
+      go test -v ./...
+    plugins:
+      - docker#v5.11.0:
+          image: "golang:1.21"
+          workdir: /app
+          volumes:
+            - ".:/app"
+
+  - label: ":golang: Build Go Service"
+    command: |
+      go build -o bin/go-hello-world
+    plugins:
+      - docker#v5.11.0:
+          image: "golang:1.21"
+          workdir: /app
+          volumes:
+            - ".:/app"
+
+  - label: ":white_check_mark: Verify Build"
+    command: |
+      ls -lh bin/go-hello-world
+    plugins:
+      - docker#v5.11.0:
+          image: "golang:1.21"
+          workdir: /app
+          volumes:
+            - ".:/app"

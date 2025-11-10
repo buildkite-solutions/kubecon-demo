@@ -1,0 +1,11 @@
+apiVersion: backstage.io/v1alpha1
+kind: Component
+metadata:
+  name: go-hello-world
+  description: A simple HTTP service written in Go
+  annotations:
+    buildkite.com/pipeline-slug: buildkite-solutions/kubecon-demo-go-hello-world
+spec:
+  type: service
+  lifecycle: production
+  owner: platform-team
