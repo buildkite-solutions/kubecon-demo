@@ -1,0 +1,11 @@
+apiVersion: backstage.io/v1alpha1
+kind: Component
+metadata:
+  name: node-hello-world
+  description: A simple Express HTTP service written in Node.js
+  annotations:
+    buildkite.com/pipeline-slug: buildkite-solutions/kubecon-demo-node-hello-world
+spec:
+  type: service
+  lifecycle: production
+  owner: platform-team

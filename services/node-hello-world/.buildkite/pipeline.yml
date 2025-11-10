@@ -1,0 +1,32 @@
+steps:
+  - label: ":nodejs: Install Dependencies"
+    command: |
+      npm ci
+    plugins:
+      - docker#v5.11.0:
+          image: "node:20"
+          workdir: /app
+          volumes:
+            - ".:/app"
+
+  - label: ":nodejs: Run Node.js Tests"
+    command: |
+      npm ci
+      npm test
+    plugins:
+      - docker#v5.11.0:
+          image: "node:20"
+          workdir: /app
+          volumes:
+            - ".:/app"
+
+  - label: ":nodejs: Lint Code"
+    command: |
+      npm ci
+      npx eslint index.js || echo "Linting optional"
+    plugins:
+      - docker#v5.11.0:
+          image: "node:20"
+          workdir: /app
+          volumes:
+            - ".:/app"
