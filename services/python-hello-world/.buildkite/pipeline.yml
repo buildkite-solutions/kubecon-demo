@@ -1,0 +1,33 @@
+steps:
+  - label: ":python: Install Dependencies"
+    command: |
+      pip install -r requirements.txt
+    plugins:
+      - docker#v5.11.0:
+          image: "python:3.11"
+          workdir: /app
+          volumes:
+            - ".:/app"
+
+  - label: ":python: Run Python Tests"
+    command: |
+      pip install -r requirements.txt
+      python -m pytest test_app.py -v
+    plugins:
+      - docker#v5.11.0:
+          image: "python:3.11"
+          workdir: /app
+          volumes:
+            - ".:/app"
+
+  - label: ":python: Lint Python Code"
+    command: |
+      pip install -r requirements.txt
+      pip install flake8
+      flake8 app.py --max-line-length=100
+    plugins:
+      - docker#v5.11.0:
+          image: "python:3.11"
+          workdir: /app
+          volumes:
+            - ".:/app"
