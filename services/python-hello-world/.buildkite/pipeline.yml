@@ -1,5 +1,5 @@
 steps:
-  - label: ":python: Install Dependencies"
+  - label: ":python: Ensure Dependencies Install"
     command: |
       cd services/python-hello-world
       pip install -r requirements.txt
@@ -14,7 +14,7 @@ steps:
     command: |
       cd services/python-hello-world
       pip install -r requirements.txt
-      python -m pytest test_app.py -v
+      python -m unittest test_app.py -v
     plugins:
       - docker#v5.11.0:
           image: "python:3.11"
