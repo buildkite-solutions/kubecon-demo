@@ -7,7 +7,7 @@ steps:
           image: "python:3.11"
           workdir: /app
           volumes:
-            - ".:/app"
+            - "./services/python-hello-world:/app"
 
   - label: ":python: Run Python Tests"
     command: |
@@ -18,7 +18,7 @@ steps:
           image: "python:3.11"
           workdir: /app
           volumes:
-            - ".:/app"
+            - "./services/python-hello-world:/app"
 
   - label: ":python: Lint Python Code"
     command: |
@@ -30,4 +30,4 @@ steps:
           image: "python:3.11"
           workdir: /app
           volumes:
-            - ".:/app"
+            - "./services/python-hello-world:/app"
