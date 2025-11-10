@@ -1,0 +1,10 @@
+apiVersion: backstage.io/v1alpha1
+kind: Location
+metadata:
+  name: kubecon-demo-monorepo
+  description: Kubecon Demo Monorepo with multiple services
+spec:
+  targets:
+    - ./services/go-hello-world/catalog-info.yaml
+    - ./services/python-hello-world/catalog-info.yaml
+    - ./services/node-hello-world/catalog-info.yaml

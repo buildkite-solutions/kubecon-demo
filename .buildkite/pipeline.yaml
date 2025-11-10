@@ -1,0 +1,15 @@
+steps:
+  - label: "Check for updates"
+    plugins:
+      - monorepo-diff#1.5.1:
+          diff: "git diff --name-only HEAD~1"
+          watch:
+            - path: "services/go-hello-world"
+              config:
+                trigger: "kubecon-demo-go-hello-world"
+            - path: "services/node-hello-world"
+              config:
+                trigger: "kubecon-demo-node-hello-world"
+            - path: "services/python-hello-world"
+              config:
+                trigger: "kubecon-demo-python-hello-world"
