@@ -1,7 +1,7 @@
 steps:
   - label: "Check for updates"
     plugins:
-      - monorepo-diff#1.5.1:
+      - monorepo-diff#v1.5.1:
           diff: "git diff --name-only HEAD~1"
           watch:
             - path: "services/go-hello-world"
