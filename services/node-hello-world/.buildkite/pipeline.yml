@@ -26,7 +26,7 @@ steps:
     command: |
       cd services/node-hello-world
       npm ci
-      npx eslint index.js || echo "Linting optional"
+      npx -y eslint index.js || echo "Linting optional"
     plugins:
       - docker#v5.11.0:
           image: "node:20"
